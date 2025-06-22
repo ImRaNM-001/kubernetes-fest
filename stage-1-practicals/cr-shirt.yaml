@@ -1,0 +1,61 @@
+apiVersion: stable.example.com/v1
+kind: Shirt
+metadata:
+  name: blue-shirt
+  namespace: stage-1-practicals
+  labels:
+    app: clothing-store
+    category: casual
+    brand: allen-solly
+  annotations:
+    description: "Premium blue casual shirt"
+    created-by: "Allen Solly Inc."
+spec:
+  color: blue
+  size: M-39
+
+---
+# BOGUS one below
+
+# apiVersion: stable.example.com/v1
+# kind: Shirt
+# metadata:
+#   name: blue-shirt
+#   namespace: stage-1-practicals
+#   labels:
+#     app: clothing-store
+#     category: casual
+#     brand: allen-solly
+#   annotations:
+#     description: "Premium blue casual shirt"
+#     created-by: "Allen Solly Inc."
+# spec:
+#   color: "blue"        # Changed: Removed "Must be" - actual value
+#   size: "M-39"         # Changed: Removed "Must be" - actual value
+
+#   # Additional fields that would commonly be in a Shirt CR
+#   material: "cotton"
+#   brand: "Allen Solly Inc."
+#   price: "1229.99"
+#   inStock: true
+#   description: "Comfortable casual blue shirt perfect for everyday wear"
+#   category: "casual"
+#   tags:
+#     - "cotton"
+#     - "casual" 
+#     - "blue"
+#     - "medium"
+#   specifications:
+#     sleeve: "long"
+#     collar: "button-down"
+#     fit: "regular"
+
+# status:
+#   # Status fields (typically managed by controller)
+#   phase: "Available"
+#   lastUpdated: "2025-06-11T21:45:00Z"
+#   inventory:
+#     available: 25
+#     reserved: 5
+#     sold: 170"
+

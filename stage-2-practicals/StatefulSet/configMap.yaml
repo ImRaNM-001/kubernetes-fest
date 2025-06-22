@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-db-config-map
+  namespace: mysql-db
+data:
+  MYSQL_DATABASE: devops-db       # NOTE: MySQL expects key name as "MYSQL_DATABASE"

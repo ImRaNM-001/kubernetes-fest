@@ -1,0 +1,16 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: dev-team
+  name: dev-team-role
+
+rules:
+- apiGroups: [""]
+  resources: ["pods", "services"]
+  verbs: ["create", "delete", "get", "list", "update"]
+
+- apiGroups: ["apps"]
+  resources: ["deployments"]                               # Deployments are in apps API group
+  verbs: ["create", "delete", "get", "list", "update"]
+
+

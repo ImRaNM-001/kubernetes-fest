@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment
+spec:
+  replicas: 2
+  selector:                    # Added: Required selector
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:                  # Added: Required labels that match selector
+        app: my-app
+    spec:
+      nodeSelector:
+        node-name: control-plane-only         # tested & works fine
+        # kubernetes.io/hostname: my-practicals-kind-cluster-control-plane  # Fixed: Use actual node name
+      tolerations:
+      - key: "node-role.kubernetes.io/control-plane"
+        operator: "Exists"
+        effect: "NoSchedule"
+      # OR specific toleration - Remove this duplicate toleration - only need one
+      # - key: "node-role.kubernetes.io/control-plane"
+      #        operator: "Equal"
+      #        value: ""
+      #        effect: "NoSchedule"
+      containers:
+      - name: my-app
+        image: nginx

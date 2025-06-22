@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: qa-team
+  name: qa-team-role
+rules:
+- apiGroups: [""]
+  resources: ["pods", "services"]     # deployments must not be here!
+  verbs: ["get", "list"] 
+
+- apiGroups: ["apps"]                # Deployments are in apps API group
+  resources: ["deployments"]
+  verbs: ["get", "list"]
