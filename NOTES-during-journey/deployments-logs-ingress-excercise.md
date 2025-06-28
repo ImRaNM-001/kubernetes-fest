@@ -181,7 +181,7 @@ kl get svc -n ingress-nginx
         ingress-nginx-controller-admission   ClusterIP   10.96.15.164   <none>        443/TCP                      5m11s
 
 
-again, check the ingress to see ADDRESS assigned   (localhost is for `KIND` clusters, for `Kubeadm` it would be NodePort IP like `192.168.x.x`  or, `10.3.x.x`)
+again, check the ingress to see ADDRESS assigned   (localhost is for `KIND` clusters, for `Kubeadm` it would be NodePort IP like `192.168.x.x`  or, `10.3.x.x`, for managed distributions ex: `EKS` it would be a `A record` DNS like `k8s-game2091-ingressX-e1d9d1f206-1078327551.ap-south-1.elb.amazonaws.com`)
 kl get ing
         NAME              CLASS   HOSTS           ADDRESS   PORTS   AGE
         fastapi-ingress   nginx   fastapi.local   localhost          80      5s

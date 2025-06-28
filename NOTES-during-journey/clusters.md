@@ -9,8 +9,12 @@ or, kind create cluster --name=my-practicals-kind-cluster --config=multi-node-ki
 (see all clusters)               [BEST COMMAND]
 kl config get-contexts
 
+    CURRENT   NAME                                                                   CLUSTER                                     AUTHINFO                                                               NAMESPACE
+*         hf-samsum-data-ingest-user@instana-tier-cluster.ap-south-1.eksctl.io   instana-tier-cluster.ap-south-1.eksctl.io   hf-samsum-data-ingest-user@instana-tier-cluster.ap-south-1.eksctl.io   
+          kind-my-practicals-kind-cluster                                        kind-my-practicals-kind-cluster             kind-my-practicals-kind-cluster                                        helm-mania
 
-(view current clusters)
+
+(view current clusters - only KIND specific)
 kind get clusters
 	--> No kind clusters found.
     --> my-practicals-kind-cluster      (if clusters exist)
@@ -19,12 +23,17 @@ kind get clusters
 (view current clusters)
 kl config current-context
 	--> error: current-context is not set	(if clusters don't exist)
-	--> kind-single-node-cluster	(if clusters exist)
+	--> kind-single-node-cluster	(if a `KIND` cluster exist)
+    --> hf-samsum-data-ingest-user@instana-tier-cluster.ap-south-1.eksctl.io        (if a `EKS` cluster exist)
 	
 
 (switch to a specific cluster)
-kl config set use-context <cluster-name>
-ex: kl config set use-context my-practicals-kind-cluster
+kl config use-context <cluster-name>
+ex: kl config use-context kind-my-practicals-kind-cluster
+
+ex: kl config use-context hf-samsum-data-ingest-user@instana-tier-cluster.ap-south-1.eksctl.io
+
+    Switched to context "hf-samsum-data-ingest-user@instana-tier-cluster.ap-south-1.eksctl.io".
 
 
 (see master & worker nodes)
