@@ -3,7 +3,7 @@
 (A) ROLLING UPDATE Strategy:
 
 (deploy the yaml manifest)
-kl apply -f deploy-rolling.yaml --record
+kl apply -f [deploy-rolling-update.yaml](../stage-3-practicals/rolling-update-nginx/deploy-rolling-update.yaml) --record
 
     Flag --record has been deprecated, --record will be removed in the future
     deployment.apps/nginx-deployment created
@@ -30,7 +30,7 @@ ex: kl set image deployment nginx-deployment nginx=nginx:1.14.2
     deployment.apps/nginx-deployment image updated
 
 
-(check history or deployment revisions)
+(check history or deployment revisions - there will be `2 revisions` - one for `nginx:1.14.0` and other for `nginx:1.14.2`)
 kl rollout history deployment <deployment-name>
 
 ex: kl rollout history deployment nginx-deployment
@@ -41,7 +41,7 @@ ex: kl rollout history deployment nginx-deployment
     2         kubectl apply --filename=deploy-rolling.yaml --record=true
 
 
-(rollback deployment to previous version)
+(rollback deployment to previous version - i.e, to `image: nginx:1.14.0`)
 kl rollout undo deployment <deployment-name> --to-revision=1 
 
 ex: kl rollout undo deployment nginx-deployment --to-revision=1         (pods get recreated again)
@@ -49,7 +49,7 @@ ex: kl rollout undo deployment nginx-deployment --to-revision=1         (pods ge
     deployment.apps/nginx-deployment rolled back
 
 
-NOTE: if switched back to revision=2, then subsequent revisions would get created replacing #revision3 & #revision4 as,
+NOTE: if switched back to revision=2 again, then subsequent revisions would get created replaced/succeeded by #revision3 & #revision4 as,
 
     REVISION  CHANGE-CAUSE
     3         kubectl apply --filename=deploy-rolling.yaml --record=true

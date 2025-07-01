@@ -1,0 +1,7 @@
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: low-priority
+value: 10000             # 10k
+globalDefault: true     # make this priority class as `default` for those pods which do not have a priority set
+description: "Priority class for scheduling low priority service pods"

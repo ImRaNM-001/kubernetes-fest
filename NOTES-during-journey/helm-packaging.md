@@ -109,7 +109,7 @@ hl pull oci://ghcr.io/<github-username>/<chart-name> --version 0.1.0
 ex: hl pull oci://ghcr.io/johndoe-001/python-fastapi-app-helm --version 0.1.0	    (pulls the tarball i.e, .tgz and then we extract to see manifests)
 
 (to install chart)
-hl install <release-name> ./<chart-name>
+hl install <release-name> ./<chart-name>            (<release-name> can be like `dev-release`, `staging-release`)
 ex: hl install python-fastapi-app ./python-fastapi-app-helm
 
 (or combining both commands)
