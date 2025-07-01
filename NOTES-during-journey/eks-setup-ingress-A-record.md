@@ -1,8 +1,9 @@
 (install eksctl & check version at 1 go)
+```bash
 curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
 sudo mv /tmp/eksctl /usr/local/bin
 eksctl version
-
+```
     0.210.0
 
 
@@ -50,7 +51,7 @@ delete the cloudformation stack         (I did from UI console)
 
 
 
-> ***I faced more issues****and went ahead with following solutions****which worked**
+> ***I faced more issues** **and went ahead with following solutions** **which worked**
 (create a new policy json file)
 vim eks-full-access.json                [refer [eks-full-access.json](../stage-4-practicals/eks-custom-policies/eks-full-access.json)]
 

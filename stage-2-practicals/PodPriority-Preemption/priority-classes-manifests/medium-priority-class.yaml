@@ -1,0 +1,7 @@
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: medium-priority
+value: 100000             # 100k or 1Lac
+globalDefault: false
+description: "Priority class for scheduling medium priority service pods"

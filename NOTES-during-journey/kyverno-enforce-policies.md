@@ -43,7 +43,7 @@ curl -s https://raw.githubusercontent.com/kyverno/policies/main/best-practices/r
     clusterpolicy.kyverno.io/require-requests-limits configured
 
 
-(see the CR installed)
+(see the installed CR)
 4. kl get <cr-name>
 
 ex: kl get clusterpolicy
@@ -59,7 +59,7 @@ kl get clusterpolicy require-requests-limits -o yaml   | grep validationFailureA
 
 
 5. (then deploy the nginx application without **resource requests & limits**),
-kl apply -f deployment.yaml          (use same file content from path: `/Users/imran-m/kubernetes-fest/stage-1-practicals/deployment-nginx.yaml` ---- kyverno should throw error)
+kl apply -f deployment.yaml          (use same file content [deployment-nginx.yaml](../stage-1-practicals/deployment-nginx.yaml) ---- kyverno should throw error)
 
     Error from server: error when creating "deployment.yaml": admission webhook "validate.kyverno.svc-fail" denied the request: 
 
